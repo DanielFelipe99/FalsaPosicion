@@ -19,28 +19,28 @@ public class FalsaPosicionVisual extends javax.swing.JFrame {
         this.setTitle("Ingreso de datos");
         this.setLocationRelativeTo(FalsaPosicionVisual.this);
         this.setResizable(false);
-        String Titulo[]={"Iteracion","a","b","xr","f(a)","f(b)","f(c)","Error"};
+        String Titulo[]={"Iteracion","a","b","xr","f(a)","f(b)","f(x)","Error"};
         tabla = new DefaultTableModel();
         tabla.setColumnIdentifiers(Titulo);
         VentanaResultados.jTable_Proceso.setEnabled(false);
         VentanaResultados.jTable_Proceso.setModel(tabla);
     }
 
-        private double f(double x){
-        double f_x = Math.pow(x, 2)+x-1;
+        private double evaluarf(double x){
+        double f_x = Math.pow(x, 4)+ 3*(Math.pow(x, 3)) - 2;
         return f_x;
         }
         
-        private double evaluarf(double x){
-        double f_x;
-        j = new JEP();
-        j.addStandardFunctions();
-        j.addStandardConstants();
-        j.addConstant("x", x);
-        j.parseExpression(jTxtFuncion.getText());
-        f_x = j.getValue();
-        return f_x;
-        }
+        //private double evaluarf(double x){
+        //double f_x;
+        //j = new JEP();
+        //j.addStandardFunctions();
+        //j.addStandardConstants();
+        //j.addConstant("x", x);
+        //j.parseExpression(jTxtFuncion.getText());
+        //f_x = j.getValue();
+        //return f_x;
+        //}
         
         
         
@@ -68,8 +68,9 @@ public class FalsaPosicionVisual extends javax.swing.JFrame {
         jLabel2.setText("Metodo Falsa Posicion");
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel3.setText("Ingresa la funcion:");
+        jLabel3.setText("Funcion:");
 
+        jTxtFuncion.setText("x^4+3x^3-2");
         jTxtFuncion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTxtFuncionActionPerformed(evt);
